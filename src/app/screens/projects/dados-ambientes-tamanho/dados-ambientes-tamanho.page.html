@@ -1,0 +1,28 @@
+<ToolbarVoltar
+  [title]="'Tamanhos dos Ambientes'"
+  [defaultHref]="'/dados-ambiente'"
+></ToolbarVoltar>
+
+<ion-content [fullscreen]="true">
+  <h2 class="header">• Defina o tamanho em m²</h2>
+
+  <div class="ambientes-lista">
+    <app-ambiente-tamanho
+      *ngFor="let ambiente of ambientes; let i = index"
+      [nome]="ambiente.nome"
+      [tamanho]="ambiente.tamanho"
+      (tamanhoMudou)="atualizarTamanho(i, $event)"
+      (remover)="removerAmbiente(i)"
+    ></app-ambiente-tamanho>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="container-buttonLink">
+    <ButtonLink
+      [routerLink]="['/home-com-projetos']"
+      text="Salvar e continuar"
+      (click)="salvarTamanhos()"
+    ></ButtonLink>
+  </div>
+</ion-footer>

@@ -1,0 +1,23 @@
+<div class="project-card" (click)="irParaDetalhes()">
+  <h2>{{ projectTitle }}</h2>
+
+  <div class="progress-container">
+    <span>Fase atual: {{ progress }}%</span>
+    <span>{{ getProgresso() }}%</span>
+  </div>
+
+  <ion-progress-bar [value]="progress / 100" color="tertiary"></ion-progress-bar>
+
+  <p>Início: {{ startDate | date: 'shortDate' }}</p>
+  <p>Previsão de entrega: {{ endDate | date: 'shortDate' }}</p>
+
+  <ng-container *ngIf="modoExclusao; else infoButton">
+    <input type="checkbox" [(ngModel)]="selecionado" (change)="toggleSelecionado()" />
+  </ng-container>
+
+  <ng-template #infoButton>
+    <button ion-button icon-only class="info-button" (click)="abrirInfo($event)">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </button>
+  </ng-template>
+</div>

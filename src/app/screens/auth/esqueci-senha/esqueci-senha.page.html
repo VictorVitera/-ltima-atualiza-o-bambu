@@ -1,0 +1,26 @@
+<ion-content class="container">
+  <div class="circle-container">
+    <div class="outer-circle">
+      <div class="inner-circle">
+        <ion-img src="assets/icons/iconLogo.png" class="image"></ion-img>
+      </div>
+    </div>
+  </div>
+
+  <p class="main-text">Esqueceu sua senha?</p>
+
+  <p class="info-text">Insira seu e-mail para receber uma nova senha...</p>
+
+  <div class="container-form">
+    <ion-item lines="none">
+      <ion-input 
+        type="email"
+        placeholder="E-mail"
+        placeholder-style="color: white;"
+        class="input">
+      </ion-input>
+    </ion-item>
+
+    <WhiteButton [text]="'Receber Código'" [routerLink]="['/tela-codigo']"></WhiteButton>
+  </div>
+</ion-content>

@@ -1,0 +1,14 @@
+<ToolbarVoltar
+  [title]="'Projeto Casa de Praia'"
+  [defaultHref]="'/home-com-projetos'"
+></ToolbarVoltar>
+
+<ion-content [fullscreen]="true" class="tela-sobre-projeto-container">
+
+  <ProjectSegment (segmentChanged)="onSegmentChange($event)"></ProjectSegment>
+  <ProjectModal [selectedSegment]="selectedSegment"></ProjectModal>
+
+  
+
+ 
+</ion-content>

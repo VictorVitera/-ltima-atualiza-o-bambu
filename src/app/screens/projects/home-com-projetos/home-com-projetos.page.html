@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Meus Projetos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!modoExclusaoAtivo" (click)="toggleModoExclusao()">Ativar Modo Exclusão</ion-button>
+      <ion-button *ngIf="modoExclusaoAtivo" (click)="toggleModoExclusao()">Cancelar</ion-button>
+      <ion-button *ngIf="modoExclusaoAtivo" (click)="excluirProjetos()">Excluir Selecionados</ion-button>
+    </ion-buttons>
+    <ion-label *ngIf="modoExclusaoAtivo">Selecionados: {{ projetosSelecionados.size }}</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="home-com-projetos-container">
+  <div *ngFor="let project of projects; let i = index" class="project-card">
+    <app-project-card
+      [projectTitle]="project.title"
+      [startDate]="project.startDate"
+      [endDate]="project.endDate"
+      [progress]="project.progress"
+      [modoExclusao]="modoExclusaoAtivo"
+      [selecionado]="projetosSelecionados.has(i)"
+      (selecionadoChange)="toggleProjetoSelecionado(i, $event)">
+    </app-project-card>
+    
+    <ion-button *ngIf="!modoExclusaoAtivo" fill="clear" color="danger" (click)="deleteProject(i)" class="delete-button">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      Deletar Projeto
+    </ion-button>
+  </div>
+</ion-content>

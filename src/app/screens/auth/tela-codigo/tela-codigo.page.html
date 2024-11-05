@@ -1,0 +1,32 @@
+<ion-content class="container">
+  <div class="circle-container">
+    <div class="outer-circle">
+      <div class="inner-circle">
+        <ion-img src="assets/icons/iconLogo.png" class="image"></ion-img>
+      </div>
+    </div>
+  </div>
+
+  <p class="main-text">INSIRA O CÓDIGO</p>
+
+  <p class="info-text">Insira o código recebido no e-mail...</p>
+
+  <div class="container-form">
+    <ion-item lines="none">
+      <ion-input 
+        type="text"
+        placeholder="Código Recebido"
+        placeholder-style="color: white;"
+        class="input">
+      </ion-input>
+    </ion-item>
+
+    <InputLink  
+    placeholder="Código Recebido" 
+    [text]="'Código'"
+    keyboardType="email"
+    autoCapitalize="none">></InputLink>
+
+    <WhiteButton [text]="'Enviar Código'" [routerLink]="['/login']"></WhiteButton>
+  </div>
+</ion-content>

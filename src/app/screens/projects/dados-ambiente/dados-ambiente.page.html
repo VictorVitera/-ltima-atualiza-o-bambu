@@ -1,0 +1,38 @@
+<ToolbarVoltar
+  [title]="'Dados dos Ambientes'"
+  [defaultHref]="'/dados-projeto'"
+></ToolbarVoltar>
+
+<ion-content class="ambiente-container">
+  <h2 class="header">• Adicione Ambientes</h2>
+
+  <div class="button">
+    <ion-button class="add-button" (click)="adicionarAmbiente()">
+      <ion-icon name="add-outline" slot="start"></ion-icon>
+      Adicionar Ambiente
+    </ion-button>
+  </div>
+
+  <div class="container-ambientes">
+    <div
+      *ngFor="let ambiente of ambientes; let i = index"
+      class="ambiente-item"
+    >
+      <app-ambiente-input
+        (nomeMudou)="atualizarNome($event, i)"
+        (quantidadeMudou)="atualizarQuantidade($event, i)"
+        (remover)="removerAmbiente(i)"
+      ></app-ambiente-input>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="container-buttonLink">
+    <ButtonLink
+      [routerLink]="['/dados-ambientes-tamanho']"
+      text="Salvar e continuar"
+      (click)="salvarAmbientes()"
+    ></ButtonLink>
+  </div>
+</ion-footer>
